@@ -1,0 +1,11 @@
+# build output
+phone/build/
+# signing keys: never commit
+*.keystore
+*.jks
+# test run output
+test/got.txt
+test/typed.txt
+test/result-*.txt
+.DS_Store
+dist/

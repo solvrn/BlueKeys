@@ -1,0 +1,7 @@
+The quick brown fox jumps over the lazy dog. THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.
+Doubles: aa bb cc dd ee ff gg hh ll mm nn oo pp ss tt zz 1122334455 Mississippi bookkeeper.
+MiXeD CaSe: HeLLo WoRLD, iPhone, McDonald, JavaScript, NASA, OK.
+Symbols: ! @ # $ % ^ & * ( ) _ + = [ ] { } | \ ; : , . / < > ? ~ `
+Code: for (int i = 0; i < 10; i++) { sum += arr[i] * 2; } // done
+Email: test.user_42@example.com, path /usr/local/bin, 3.14159 + 2.71828 = 5.85987
+The end. Line seven has numbers 0123456789 and stops here.

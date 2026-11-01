@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Text arrives by Paste only, so the box is a read-only TextView: tapping it never
+     opens the phone keyboard. Paste / Clear / Type it are the big buttons; the timing
+     settings sit at the bottom since they rarely change. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F5F5"
+    android:padding="16dp">
+
+    <!-- Title + connection -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BlueKeys"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#1565C0" />
+
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Starting…"
+                android:textSize="13sp"
+                android:textColor="#757575" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/connectBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="Connect"
+            android:background="#1565C0"
+            android:textColor="#FFFFFF"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp" />
+    </LinearLayout>
+
+    <!-- Shown only when a newer version exists; opens the one-click download. -->
+    <Button
+        android:id="@+id/updateBtn"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginTop="10dp"
+        android:visibility="gone"
+        android:background="#2E7D32"
+        android:textColor="#FFFFFF" />
+
+    <!-- Pasted text preview (fills the spare height) -->
+    <TextView
+        android:id="@+id/textInput"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="14dp"
+        android:hint="Tap Paste to load the text you copied."
+        android:gravity="top|start"
+        android:textSize="14sp"
+        android:textColor="#212121"
+        android:background="#FFFFFF"
+        android:padding="10dp"
+        android:scrollbars="vertical" />
+
+    <TextView
+        android:id="@+id/charCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textSize="12sp"
+        android:textColor="#757575"
+        android:gravity="end" />
+
+    <!-- Paste / Clear -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <Button
+            android:id="@+id/pasteBtn"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="10dp"
+            android:text="Paste"
+            android:textSize="18sp"
+            android:background="#E3F2FD"
+            android:textColor="#1565C0" />
+
+        <Button
+            android:id="@+id/clearBtn"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:text="Clear"
+            android:textSize="18sp"
+            android:background="#EEEEEE"
+            android:textColor="#424242" />
+    </LinearLayout>
+
+    <!-- Type it (turns into Stop while typing) -->
+    <Button
+        android:id="@+id/typeBtn"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_marginTop="10dp"
+        android:text="Type it"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:background="#1565C0"
+        android:textColor="#FFFFFF" />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/progressLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textColor="#757575"
+        android:gravity="center" />
+
+    <View android:layout_width="match_parent" android:layout_height="1dp"
+        android:background="#DDDDDD" android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Speed (WPM) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:text="Speed"
+            android:textSize="13sp"
+            android:textColor="#424242" />
+
+        <SeekBar
+            android:id="@+id/wpmSlider"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:max="230"
+            android:progress="40" />
+
+        <TextView
+            android:id="@+id/wpmLabel"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:text="60 WPM"
+            android:textSize="13sp"
+            android:textColor="#424242"
+            android:gravity="end" />
+    </LinearLayout>
+
+    <!-- Naturalness -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:text="Natural"
+            android:textSize="13sp"
+            android:textColor="#424242" />
+
+        <SeekBar
+            android:id="@+id/naturalSlider"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:max="100"
+            android:progress="65" />
+
+        <TextView
+            android:id="@+id/naturalLabel"
+            android:layout_width="64dp"
+            android:layout_height="wrap_content"
+            android:text="65%"
+            android:textSize="13sp"
+            android:textColor="#424242"
+            android:gravity="end" />
+    </LinearLayout>
+
+    <!-- Turbo toggle -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <Switch
+            android:id="@+id/turboSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Turbo"
+            android:textSize="13sp"
+            android:textColor="#424242" />
+
+        <TextView
+            android:id="@+id/turboWarning"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="  No human timing — may be detectable"
+            android:textSize="11sp"
+            android:textColor="#B71C1C"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <!-- Code mode toggle -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <Switch
+            android:id="@+id/codeSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Code mode"
+            android:textSize="13sp"
+            android:textColor="#424242" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="  For code editors: undoes auto-brackets and auto-indent. Start in an empty editor."
+            android:textSize="11sp"
+            android:textColor="#757575" />
+    </LinearLayout>
+
+
+    <!-- Which computer: picks the shortcuts Code mode uses (remembered per computer) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Computer"
+            android:textSize="13sp"
+            android:textColor="#424242"
+            android:layout_marginEnd="8dp" />
+
+        <RadioGroup
+            android:id="@+id/osGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:checkedButton="@+id/osMac">
+
+            <RadioButton
+                android:id="@+id/osMac"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Mac"
+                android:textSize="13sp"
+                android:layout_marginEnd="12dp" />
+
+            <RadioButton
+                android:id="@+id/osWin"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Windows / Linux"
+                android:textSize="13sp" />
+        </RadioGroup>
+    </LinearLayout>
+
+</LinearLayout>

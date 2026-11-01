@@ -1,0 +1,23 @@
+<!doctype html><meta charset="utf-8"><title>BlueKeys editor test</title>
+<style>html,body{margin:0;height:100%}#ed{height:100vh}</style>
+<div id="ed"></div>
+<script>
+const kind = new URLSearchParams(location.search).get('ed') || 'monaco';
+const report = get => setInterval(() => fetch('/result?ed=' + kind, {method: 'POST', body: get()}), 1000);
+function load(src, cb) { const s = document.createElement('script'); s.src = src; s.onload = cb; document.head.appendChild(s); }
+if (kind === 'ace') {
+  load('https://cdn.jsdelivr.net/npm/ace-builds@1.36.2/src-min-noconflict/ace.js', () => {
+    ace.config.set('basePath', 'https://cdn.jsdelivr.net/npm/ace-builds@1.36.2/src-min-noconflict/');
+    const e = ace.edit('ed', {mode: 'ace/mode/c_cpp', fontSize: 16});
+    e.focus(); report(() => e.getValue());
+  });
+} else {
+  load('https://cdn.jsdelivr.net/npm/monaco-editor@0.52.0/min/vs/loader.js', () => {
+    require.config({paths: {vs: 'https://cdn.jsdelivr.net/npm/monaco-editor@0.52.0/min/vs'}});
+    require(['vs/editor/editor.main'], () => {
+      const e = monaco.editor.create(document.getElementById('ed'), {language: 'cpp', fontSize: 16});
+      e.focus(); report(() => e.getValue());
+    });
+  });
+}
+</script>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <!-- Keyboard outline -->
+    <path
+        android:fillColor="#1565C0"
+        android:pathData="M6,14 Q4,14 4,16 L4,32 Q4,34 6,34 L42,34 Q44,34 44,32 L44,16 Q44,14 42,14 Z" />
+    <!-- Keys row 1 (small white rectangles) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M8,17 L12,17 L12,21 L8,21 Z
+                          M14,17 L18,17 L18,21 L14,21 Z
+                          M20,17 L24,17 L24,21 L20,21 Z
+                          M26,17 L30,17 L30,21 L26,21 Z
+                          M32,17 L36,17 L36,21 L32,21 Z
+                          M38,17 L42,17 L42,21 L38,21 Z" />
+    <!-- Keys row 2 -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M8,23 L12,23 L12,27 L8,27 Z
+                          M14,23 L18,23 L18,27 L14,27 Z
+                          M20,23 L24,23 L24,27 L20,27 Z
+                          M26,23 L30,23 L30,27 L26,27 Z
+                          M32,23 L36,23 L36,27 L32,27 Z
+                          M38,23 L42,23 L42,27 L38,27 Z" />
+    <!-- Spacebar -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M14,29 L36,29 L36,33 L14,33 Z" />
+</vector>
